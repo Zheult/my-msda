@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "bpg_mrgvlovani";
+  src: url("../fonts/bpg_mrgvlovani_2009/bpg_mrgvlovani_2009.eot");
+  src: url("../fonts/bpg_mrgvlovani_2009/bpg_mrgvlovani_2009.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/bpg_mrgvlovani_2009/bpg_mrgvlovani_2009.woff") format("woff"),
+       url("../fonts/bpg_mrgvlovani_2009/bpg_mrgvlovani_2009.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bpg_mrgvlovani_caps";
+  src: url("../fonts/bpg_mrgvlovani_caps/bpg_mrgvlovani_caps.eot");
+  src: url("../fonts/bpg_mrgvlovani_caps/bpg_mrgvlovani_caps.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/bpg_mrgvlovani_caps/bpg_mrgvlovani_caps.woff") format("woff"),
+       url("../fonts/bpg_mrgvlovani_caps/bpg_mrgvlovani_caps.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bpg-mrgvlovani {
+  font-family: "bpg_mrgvlovani", sans-serif;
+}
+
+.bpg-mrgvlovani-caps {
+  font-family: "bpg_mrgvlovani_caps", sans-serif;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "asstes",
+  "version": "0.0.1",
+  "authors": [
+    "Zheult <zheult@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Zheult",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.6",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "2.1.4",
+    "lightslider": "~1.1.3"
+  }
+}
