@@ -5,6 +5,7 @@
         var $window = $(window),
             $body = $('body');
 
+        var reinitOwl;
         var lightSlider, refreshLightSlider;
 
         var $lightSlider = $('#lightSlider');
@@ -24,23 +25,17 @@
 
         var _equalizerTimeout;
         var equalizeHeights = function (t) {
-            var equalize = function () {
-                var maxHeight = 0;
-                $('.equalize').css('height', '').each(function () {
-                    var parentHeight = $(this).parent().height();
-                    if (parentHeight > maxHeight) maxHeight = parentHeight;
-                }).height(maxHeight);
-            };
             t = typeof t !== 'number' ? 400 : t;
-            if (t > 0) {
-                clearTimeout(_equalizerTimeout);
-                _equalizerTimeout = setTimeout(equalize, t);
-            } else {
-                equalize();
-            }
+            var $equalize = $('.equalize').css({height: 'auto', visibility: 'hidden'});
+            clearTimeout(_equalizerTimeout);
+            _equalizerTimeout = setTimeout(function () {
+                var maxHeight = 0;
+                $equalize.each(function () {
+                    var height = $(this).height();
+                    if (height > maxHeight) maxHeight = height;
+                }).height(maxHeight).css({visibility: 'visible'});
+            }, t);
         };
-
-        equalizeHeights(0);
 
         $window.on('resize', function () {
             equalizeHeights();
@@ -53,9 +48,25 @@
             if (typeof refreshLightSlider === 'function') refreshLightSlider();
         }).resize();
 
+        var $owlCarousel = $('.owl-carousel');
+        if ($owlCarousel.length) {
+            $owlCarousel.owlCarousel({navigation: true, navigationText: ['<i class="fa fa-angle-left fa-2x"></i>', '<i class="fa fa-angle-right fa-2x"></i>'], pagination: false});
+
+            var _owlTimeout;
+            reinitOwl = function (t) {
+                t = typeof t !== 'number' ? 400 : t;
+                $owlCarousel.hide();
+                clearTimeout(_owlTimeout);
+                _owlTimeout = setTimeout(function () {
+                    $owlCarousel.show().data('owlCarousel').reinit();
+                }, t);
+            };
+        }
+
         $('.sidebar-toggle').on('click', function () {
             equalizeHeights();
             $body.toggleClass('sidebar-collapsed');
+            if (typeof reinitOwl === 'function') reinitOwl();
             if (typeof refreshLightSlider === 'function') refreshLightSlider();
         });
     });

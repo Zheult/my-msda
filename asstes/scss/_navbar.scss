@@ -73,14 +73,14 @@
       padding-bottom: 20px;
 
       img {
-        -webkit-transition: filter .4s;
-        -moz-transition: filter .4s;
-        -ms-transition: filter .4s;
-        -o-transition: filter .4s;
+        -webkit-transition: -webkit-filter .4s;
+        -moz-transition: -moz-filter .4s;
         transition: filter .4s;
       }
 
       &:hover img {
+        -webkit-filter: contrast(6%);
+        -moz-filter: contrast(6%);
         filter: contrast(6%);
       }
     }

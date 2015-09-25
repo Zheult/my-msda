@@ -29,12 +29,12 @@ a {
     margin: 0;
 
     > li {
-      font-size: 1vw;
+      font-size: 12px;
       font-family: bpg_mrgvlovani_caps;
 
       > a {
         > img {
-          width: 5vw;
+          width: 60px;
         }
 
         > i {
@@ -96,6 +96,10 @@ footer {
         width: 115px;
       }
 
+      > span {
+        margin-top: 10px;
+      }
+
       &:focus,
       &:hover {
         color: lighten(#999, 12%);
@@ -129,8 +133,7 @@ footer {
       }
 
       > span {
-        margin-top: 10px;
-        font-size: .8vw;
+        font-size: 12px;
       }
 
       &:focus,
@@ -146,22 +149,20 @@ footer {
   }
 }
 
-.services ul {
-  //list-style: none;
-  //margin: 0;
-  //padding: 0;
-
-  > li {
-    margin-bottom: 0;
-    //display: inline-block;
-
-    > a {
-      margin-right: 0;
-      border: none;
+.services {
+  .owl-item {
+    a {
+      height: 75px;
       padding: 20px 30px;
       font-size: 12px;
       font-family: bpg_mrgvlovani_caps;
+      position: relative;
       background-color: #fff;
+      border-bottom: 3px solid #238ed6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       -webkit-border-radius: 0;
       -moz-border-radius: 0;
@@ -169,16 +170,44 @@ footer {
 
       &:focus,
       &:hover {
-        padding-bottom: 17px;
+        background-color: #f7f9fb;
         border-bottom: 3px solid #7dc94f !important;
       }
+
+      &:before {
+        position: absolute;
+        content: "";
+        top: 13px;
+        left: -1px;
+        height: 50px;
+        width: 1px;
+        background-color: #ccc;
+      }
+    }
+
+    &:first-child a:before {
+      width: 0;
+      height: 0;
     }
   }
 
-  &:last-child > li > a {
-    padding-bottom: 20px;
-    border-top: 1px solid #d3d3d3;
-    border-bottom: 3px solid #238ed6;
+  .owl-theme .owl-controls {
+    margin-top: 15px;
+
+    .owl-buttons div {
+      padding: 3px 20px;
+      background-color: #238ed6;
+
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+
+      -webkit-transition: opacity .4s;
+      -moz-transition: opacity .4s;
+      -ms-transition: opacity .4s;
+      -o-transition: opacity .4s;
+      transition: opacity .4s;
+    }
   }
 }
 
@@ -200,12 +229,12 @@ footer {
         margin: 0 5px;
         padding: 15px 20px;
         background-color: #fff;
-        font-size: 12px;
+        font-size: 11px;
         font-family: bpg_mrgvlovani;
-        text-align: center;
         text-decoration: none;
         display: flex;
         align-items: center;
+        justify-content: center;
 
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
