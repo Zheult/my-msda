@@ -12,13 +12,23 @@
         if ($lightSlider.length) {
             lightSlider = $lightSlider.lightSlider({item: 1, pager: false});
 
+            var $linksIndicators = $('.links-indicators');
+            $linksIndicators.find('li a').on('click', function () {
+                var $parent = $(this).parent();
+                if ($parent.hasClass('active')) return;
+                $parent.addClass('active').siblings().removeClass('active');
+                lightSlider.goToSlide($parent.index());
+            });
+
             var _lightSliderTimeout;
             refreshLightSlider = function (t) {
-                t = t || 450;
+                t = t || 400;
                 lightSlider.hide();
+                $linksIndicators.hide();
                 clearTimeout(_lightSliderTimeout);
                 _lightSliderTimeout = setTimeout(function () {
                     lightSlider.show().refresh();
+                    $linksIndicators.show();
                 }, t);
             };
         }
@@ -50,7 +60,11 @@
 
         var $owlCarousel = $('.owl-carousel');
         if ($owlCarousel.length) {
-            $owlCarousel.owlCarousel({navigation: true, navigationText: ['<i class="fa fa-angle-left fa-2x"></i>', '<i class="fa fa-angle-right fa-2x"></i>'], pagination: false});
+            $owlCarousel.owlCarousel({
+                navigation: true,
+                navigationText: ['<i class="fa fa-angle-left fa-2x"></i>', '<i class="fa fa-angle-right fa-2x"></i>'],
+                pagination: false
+            });
 
             var _owlTimeout;
             reinitOwl = function (t) {
@@ -64,10 +78,14 @@
         }
 
         $('.sidebar-toggle').on('click', function () {
-            equalizeHeights();
             $body.toggleClass('sidebar-collapsed');
+            equalizeHeights();
             if (typeof reinitOwl === 'function') reinitOwl();
             if (typeof refreshLightSlider === 'function') refreshLightSlider();
+        });
+
+        $('.hasDropdown a').on('click', function () {
+            $(this).next('.google-dropdown').toggleClass('open');
         });
     });
 })(jQuery, window);

@@ -94,10 +94,14 @@
 
       > .badge {
         position: absolute;
-        top: 11px;
-        right: 11px;
-        background-color: #7dc94f;
-        padding: 5px 7px;
+        top: 8px;
+        right: 15px;
+        background-color: #7DC94F;
+        padding: 8px 10px;
+
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
       }
 
       &:focus,
