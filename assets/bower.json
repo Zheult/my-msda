@@ -19,6 +19,7 @@
     "font-awesome": "4.4.0",
     "jquery": "2.1.4",
     "lightslider": "1.1.3",
-    "owlcarousel": "1.3.2"
+    "owlcarousel": "1.3.2",
+    "pickadate": "https://github.com/amsul/pickadate.js.git#3.5.6"
   }
 }
